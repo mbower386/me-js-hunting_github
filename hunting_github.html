@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <title>Hunting Github</title>
+</head>
+
+<body>
+
+    <div class="hunting-github">
+        <p>
+            <button id="getName">Get Github Name</button>
+        </p>
+        <p>The user's name is:</p>
+        <p class="userFullName"></p>
+    </div>
+    <script>
+        // assuming you have jQuery
+
+        $("#getName").click(function () {
+            var username = "mbower386";
+            var userFullName;
+            // the given link is for Bulbasaur's information
+            $.get("https://api.github.com/users/" + username, function (data) {
+                userFullName = data.name;
+                console.log("This user's name is: ", userFullName);      // Predict the output!
+                var userName = $("userFullName").html();
+                $("userFullName").text(userFullName);
+            });
+        });
+    </script>
+</body>
+
+</html>
